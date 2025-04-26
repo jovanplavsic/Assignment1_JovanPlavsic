@@ -22,4 +22,12 @@ public class Matrix {
     public int[][] getData(){
         return data;
     }
+
+    public int getRowCount(){
+        return data.length;
+    }
+
+    public int getColCount(){
+        return data[0].length;
+    }
 }
