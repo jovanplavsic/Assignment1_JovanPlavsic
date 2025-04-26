@@ -11,7 +11,7 @@ public class MatrixOutlinePrinter implements MatrixPrinter {
         out.append("+\n");
 
         for (int i = 0; i < rows; i++) {
-            out.append(print(matrix, i)).append("\n");
+            out.append(printRow(matrix, i)).append("\n");
         }
 
         out.append("+");
@@ -23,7 +23,7 @@ public class MatrixOutlinePrinter implements MatrixPrinter {
     }
 
 
-    protected String print(Matrix matrix, int rowIndex) {
+    protected String printRow(Matrix matrix, int rowIndex) {
         StringBuilder row = new StringBuilder("|");
         for (int j = 0; j < matrix.getColCount(); j++) {
             row.append(" ");
