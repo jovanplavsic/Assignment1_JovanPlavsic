@@ -23,6 +23,22 @@ public class Shape extends Matrix{
         return name;
     }
 
+public static void main(String[] args) {
+        int[][] beehive = {
+            {0, 0, 0, 0, 0, 0},
+            {0, 0, 1, 1, 0, 0},
+            {0, 1, 0, 0, 1, 0},
+            {0, 0, 1, 1, 0, 0},
+            {0, 0, 0, 0, 0, 0}
+        };
 
+        int[][] boat = {
+            {0, 0, 0, 0, 0},
+            {0, 1, 1, 0, 0},
+            {0, 1, 0, 1, 0},
+            {0, 1, 0, 0, 0},
+            {0, 0, 0, 0, 0}
+        };
+    }
 
 }
