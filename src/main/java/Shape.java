@@ -36,9 +36,21 @@ public static void main(String[] args) {
             {0, 0, 0, 0, 0},
             {0, 1, 1, 0, 0},
             {0, 1, 0, 1, 0},
-            {0, 1, 0, 0, 0},
+            {0, 0, 1, 0, 0},
             {0, 0, 0, 0, 0}
         };
+
+        Shape beehiveShape = new Shape("Beehive", beehive);
+        Shape boatShape = new Shape("Boat", boat);
+
+        BoolMatrixPrinter printer = new BoolMatrixPrinter();
+
+        System.out.println("Beehive:");
+        System.out.println(printer.print(beehiveShape));
+        System.out.println();
+
+        System.out.println("Boat:");
+        System.out.println(printer.print(boatShape));
     }
 
 }
