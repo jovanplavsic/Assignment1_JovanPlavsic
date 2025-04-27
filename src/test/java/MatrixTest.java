@@ -1,9 +1,17 @@
+// ------------------------------------
+// Assignment 1
+// Written by: Jovan Plavsic 230417
+// For SE350 Section 602 - Spring 2025
+// ------------------------------------
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+// Test Matrix class
 public class MatrixTest {
 
+    // Test if Matrix accepts only valid dimensions
     @Test
     public void testValidDimensions() {
         Matrix matrix = new Matrix(3, 4);
@@ -11,6 +19,7 @@ public class MatrixTest {
         assertEquals(4, matrix.getColCount());
     }
 
+    // Test that Matrix doesn't accept 0 or negative values
     @Test(expected = IllegalArgumentException.class)
     public void testZeroConstructors() {
         new Matrix(0, 0);
