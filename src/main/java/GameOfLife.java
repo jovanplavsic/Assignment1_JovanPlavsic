@@ -31,7 +31,7 @@ public class GameOfLife extends Matrix {
         int[][] next = new int[rows][cols];
 
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; i < cols; i++) {
+            for (int j = 0; j < cols; j++) {
                 int neighbors = countNeighbors(curr, i, j);
 
                 if (curr[i][j] == 1) {
@@ -40,16 +40,16 @@ public class GameOfLife extends Matrix {
                     } else {
                         next[i][j] = 1;
                     }
-                    if (curr[i][j] == 0) {
-                        if (neighbors == 3) {
-                            next[i][j] = 0;
-                        } else {
-                            next[i][j] = 1;
-                        }
+                } else {
+                    if (neighbors == 3) {
+                        next[i][j] = 1;
+                    } else {
+                        next[i][j] = 0;
                     }
                 }
             }
         }
+        setData(next);
     }
 
     private int countNeighbors(int[][] game, int row, int col) {
@@ -72,5 +72,47 @@ public class GameOfLife extends Matrix {
         return count;
     }
 
+    public static void main(String[] args) {
+        GameOfLife game = new GameOfLife(10, 10);
 
+
+        Shape blinker = new Shape("Blinker", new int[][]{
+                {0, 1, 0},
+                {0, 1, 0},
+                {0, 1, 0},
+        });
+
+        Shape glider = new Shape("Glider", new int[][]{
+                {0, 0, 1},
+                {1, 0, 1},
+                {0, 1, 1},
+        });
+
+        game.addShape(blinker, 7, 7);
+        game.addShape(glider, 1, 1);
+
+        BoolMatrixPrinter printer = new BoolMatrixPrinter();
+        int s = 0;
+        System.out.println(printer.print(game));
+
+        while (true) {
+            s++;
+            game.step();
+
+            System.out.println("Step " + s);
+            String output = printer.print(game);
+
+            System.out.println("\033[H\033[2J");
+            System.out.flush();
+            System.out.println(output);
+
+            try {
+                Thread.sleep(250);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
+            }
+        }
+
+    }
 }
