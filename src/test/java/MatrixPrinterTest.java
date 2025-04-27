@@ -54,9 +54,9 @@ public class MatrixPrinterTest {
         // Expected shape and positions of data1 values
         String expected1 =
                 "+---+\n" +
-                "| # |\n" +
-                "|# #|\n" +
-                "+---+";
+                        "| # |\n" +
+                        "|# #|\n" +
+                        "+---+";
 
         assertEquals(expected1, printer1.print(matrix1));
 
