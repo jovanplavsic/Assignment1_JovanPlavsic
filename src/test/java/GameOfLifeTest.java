@@ -32,6 +32,27 @@ public class GameOfLifeTest {
 
     @Test
     public void testOneStep() {
+        BoolMatrixPrinter printer = new BoolMatrixPrinter();
+
+        game.step();
+
+        int[][] expected = new int[10][10];
+
+        //glider
+        expected[1][2] = 1;
+        expected[2][3] = 1;
+        expected[2][4] = 1;
+        expected[3][3] = 1;
+        expected[3][2] = 1;
+
+        //blinker
+        expected[8][7] = 1;
+        expected[8][8] = 1;
+        expected[8][9] = 1;
+
+
+        System.out.println(printer.print(game));
+        assertArrayEquals(expected, game.getData());
     }
 
     @Test
@@ -53,6 +74,7 @@ public class GameOfLifeTest {
         expected[7][8] = 1;
         expected[8][8] = 1;
         expected[9][8] = 1;
+
         System.out.println(printer.print(game));
         assertArrayEquals(expected, game.getData());
 
