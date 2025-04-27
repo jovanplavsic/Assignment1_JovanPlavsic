@@ -11,9 +11,7 @@ public class GameOfLife extends Matrix {
         int shapeRows = shape.getRowCount();
         int shapeCols = shape.getColCount();
 
-        if (rowNum < 0 || colNum < 0 ||
-                rowNum + shapeRows > getRowCount() ||
-                colNum + shapeCols > getColCount()) {
+        if (rowNum < 0 || colNum < 0 || rowNum + shapeRows > getRowCount() || colNum + shapeCols > getColCount()) {
             throw new IllegalArgumentException("Shape does not fit within the game.");
         }
 
@@ -76,17 +74,9 @@ public class GameOfLife extends Matrix {
         GameOfLife game = new GameOfLife(10, 10);
 
 
-        Shape blinker = new Shape("Blinker", new int[][]{
-                {0, 1, 0},
-                {0, 1, 0},
-                {0, 1, 0},
-        });
+        Shape blinker = new Shape("Blinker", new int[][]{{0, 1, 0}, {0, 1, 0}, {0, 1, 0},});
 
-        Shape glider = new Shape("Glider", new int[][]{
-                {0, 0, 1},
-                {1, 0, 1},
-                {0, 1, 1},
-        });
+        Shape glider = new Shape("Glider", new int[][]{{0, 0, 1}, {1, 0, 1}, {0, 1, 1},});
 
         game.addShape(blinker, 7, 7);
         game.addShape(glider, 1, 1);

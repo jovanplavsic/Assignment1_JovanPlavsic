@@ -31,34 +31,34 @@ public class MatrixPrinterTest {
     }
 
     @Test
-    public void testBoolMatrixPrinterValidMatrix1(){
+    public void testBoolMatrixPrinterValidMatrix1() {
         int[][] data1 = {
-            {0, 1, 0},
-            {1, 0, 1}
+                {0, 1, 0},
+                {1, 0, 1}
         };
         Matrix matrix1 = new Matrix(data1);
         BoolMatrixPrinter printer1 = new BoolMatrixPrinter();
 
         String expected1 =
                 "+---+\n" +
-                "| # |\n" +
-                "|# #|\n" +
-                "+---+";
+                        "| # |\n" +
+                        "|# #|\n" +
+                        "+---+";
 
         assertEquals(expected1, printer1.print(matrix1));
 
-         int[][] data2 = {
-            {1, 1},
-            {0, 0}
+        int[][] data2 = {
+                {1, 1},
+                {0, 0}
         };
         Matrix matrix2 = new Matrix(data2);
         BoolMatrixPrinter printer2 = new BoolMatrixPrinter();
 
         String expected2 =
                 "+--+\n" +
-                "|##|\n" +
-                "|  |\n" +
-                "+--+";
+                        "|##|\n" +
+                        "|  |\n" +
+                        "+--+";
 
         assertEquals(expected2, printer2.print(matrix2));
     }

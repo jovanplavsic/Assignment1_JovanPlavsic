@@ -1,10 +1,10 @@
-public class Shape extends Matrix{
+public class Shape extends Matrix {
     private String name;
 
-    public Shape(String name, int[][] data){
+    public Shape(String name, int[][] data) {
         super(data);
 
-        if (data == null || data.length < 1 || data[0].length < 1){
+        if (data == null || data.length < 1 || data[0].length < 1) {
             throw new IllegalArgumentException("Matrix cannot be null or empty");
         }
 
@@ -19,25 +19,25 @@ public class Shape extends Matrix{
         this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-public static void main(String[] args) {
+    public static void main(String[] args) {
         int[][] beehive = {
-            {0, 0, 0, 0, 0, 0},
-            {0, 0, 1, 1, 0, 0},
-            {0, 1, 0, 0, 1, 0},
-            {0, 0, 1, 1, 0, 0},
-            {0, 0, 0, 0, 0, 0}
+                {0, 0, 0, 0, 0, 0},
+                {0, 0, 1, 1, 0, 0},
+                {0, 1, 0, 0, 1, 0},
+                {0, 0, 1, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0}
         };
 
         int[][] boat = {
-            {0, 0, 0, 0, 0},
-            {0, 1, 1, 0, 0},
-            {0, 1, 0, 1, 0},
-            {0, 0, 1, 0, 0},
-            {0, 0, 0, 0, 0}
+                {0, 0, 0, 0, 0},
+                {0, 1, 1, 0, 0},
+                {0, 1, 0, 1, 0},
+                {0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 0}
         };
 
         Shape beehiveShape = new Shape("Beehive", beehive);
