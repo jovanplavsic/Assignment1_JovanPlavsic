@@ -24,6 +24,34 @@ public class GameOfLife extends Matrix {
         }
     }
 
+    public void step() {
+        int rows = getRowCount();
+        int cols = getColCount();
+        int[][] curr = getData();
+        int[][] next = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; i < cols; i++) {
+                int neighbors = countNeighbors(curr, i, j);
+
+                if (curr[i][j] == 1) {
+                    if (neighbors < 2 || neighbors > 3) {
+                        next[i][j] = 0;
+                    } else {
+                        next[i][j] = 1;
+                    }
+                    if (curr[i][j] == 0) {
+                        if (neighbors == 3) {
+                            next[i][j] = 0;
+                        } else {
+                            next[i][j] = 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     private int countNeighbors(int[][] game, int row, int col) {
         int count = 0;
         int rowCount = game.length;
